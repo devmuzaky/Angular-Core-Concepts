@@ -1,0 +1,44 @@
+<div #container *ngIf="course" class="course-card">
+  <div class="course-title">
+    {{ cardIndex || '' + ' ' + course.description }}
+  </div>
+
+  <ng-content *ngIf="course.iconUrl"
+              select="course-image"></ng-content>
+
+  <div class="course-description">
+
+    Edit Title:
+    <input
+      #courseTitle
+      (keyup)="onTitleChanged(courseTitle.value)"
+      [value]="course.description"
+    >
+  </div>
+
+  <div class="course-category">
+
+    <div class="category" i18n>
+
+      {
+        course.category,
+        select,
+        BEGINNER {Beginner}
+        INTERMEDIATE {Intermediate}
+        ADVANCED {Advanced}
+        }
+
+    </div>
+
+
+  </div>
+
+  <button (click)="onSaveClicked(courseTitle.value)">Save Course</button>
+
+</div>
+
+
+
+
+
+
