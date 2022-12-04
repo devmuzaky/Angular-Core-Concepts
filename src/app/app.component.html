@@ -1,36 +1,27 @@
 <div class="top-menu">
-
   <img alt="Angular Academy logo"
        class="logo"
        src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
-  >
-
 </div>
-
 <div>
 
   <div class="demo">
-
-
     <button (click)="onEditCourse()" i18n>Edit Course</button>
-
   </div>
 
   <div class="courses">
 
-    <course-card (courseChanged)="save($event)"
-                 *ngFor="let course of  courses  "
-                 [course]="course"
-                 type="beginner">
+    <course-card
+      (courseChanged)="save($event)"
+      *ngFor="let course of  courses; index as i; first as isFirst; last as isLast; odd as isOdd; even as isEven"
+      [cardIndex]="i+1"
+      [class.is-even]="isEven"
+      [class.is-first]="isFirst"
+      [class.is-last]="isLast"
+      [class.is-odd]="isOdd"
+      [course]="course"
+      type="beginner">
       <course-image [src]="course.iconUrl"></course-image>
     </course-card>
-
-
   </div>
-
-
 </div>
-
-
-
-
