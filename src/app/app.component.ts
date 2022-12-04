@@ -1,11 +1,11 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Inject, Injector, OnInit} from '@angular/core';
+import {Component, Inject, Injector, OnInit} from '@angular/core';
 import {Course} from './model/course';
-import {Observable} from 'rxjs';
 import {AppConfig, CONFIG_TOKEN} from './config';
 import {COURSES} from '../db-data';
 import {CoursesService} from './courses/courses.service';
 import {createCustomElement} from '@angular/elements';
 import {CourseTitleComponent} from './course-title/course-title.component';
+import * as events from "events";
 
 
 @Component({
@@ -15,9 +15,8 @@ import {CourseTitleComponent} from './course-title/course-title.component';
 })
 export class AppComponent implements OnInit {
 
+  title = "Hello World"
   courses: Course[] = COURSES;
-
-  coursesTotal = this.courses.length;
 
   constructor(
     private coursesService: CoursesService,
@@ -27,23 +26,25 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    const htmlElement = createCustomElement(CourseTitleComponent, {injector:this.injector});
-
-    customElements.define('course-title', htmlElement);
+    //
+    // const htmlElement = createCustomElement(CourseTitleComponent, {injector: this.injector});
+    //
+    // customElements.define('course-title', htmlElement);
 
   }
 
   onEditCourse() {
 
-    this.courses[1].category = 'ADVANCED';
+    // this.courses[1].category = 'ADVANCED';
 
   }
 
   save(course: Course) {
-    this.coursesService.saveCourse(course)
-      .subscribe(
-        () => console.log('Course Saved!')
-      );
+    // this.coursesService.saveCourse(course)
+    //   .subscribe(
+    //     () => console.log('Course Saved!')
+    //   );
   }
+
+
 }

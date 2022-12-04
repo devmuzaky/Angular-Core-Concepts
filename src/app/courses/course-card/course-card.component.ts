@@ -1,20 +1,4 @@
-import {
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewChecked,
-  AfterViewInit,
-  Attribute,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  DoCheck,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  Output
-} from '@angular/core';
+import {Attribute, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Course} from '../../model/course';
 import {CoursesService} from '../courses.service';
 
