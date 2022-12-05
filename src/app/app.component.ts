@@ -1,6 +1,5 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Inject, Injector, OnInit} from '@angular/core';
+import {Component, Inject, Injector, OnInit, ViewChild} from '@angular/core';
 import {Course} from './model/course';
-import {Observable} from 'rxjs';
 import {AppConfig, CONFIG_TOKEN} from './config';
 import {COURSES} from '../db-data';
 import {CoursesService} from './courses/courses.service';
@@ -17,8 +16,6 @@ export class AppComponent implements OnInit {
 
   courses: Course[] = COURSES;
 
-  coursesTotal = this.courses.length;
-
   constructor(
     private coursesService: CoursesService,
     @Inject(CONFIG_TOKEN) private config: AppConfig,
@@ -33,12 +30,15 @@ export class AppComponent implements OnInit {
     customElements.define('course-title', htmlElement);
 
   }
+  ngAfterViewInit() {
+  }
 
   onEditCourse() {
 
     this.courses[1].category = 'ADVANCED';
 
   }
+
 
   save(course: Course) {
     this.coursesService.saveCourse(course)

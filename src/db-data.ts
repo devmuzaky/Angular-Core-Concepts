@@ -60,7 +60,7 @@ export const COURSES: any = [
     id: 8,
     description: 'Complete Typescript Course',
     longDescription: "Complete Guide to Typescript From Scratch: Learn the language in-depth and use it to build a Node REST API.",
-    iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png',
+    // iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png',
     category: 'BEGINNER'
   },
   {
@@ -73,7 +73,7 @@ export const COURSES: any = [
   {
     id: 10,
     description: "Angular Material Course",
-    iconUrl: "https://s3-us-west-1.amazonaws.com/angular-university/course-images/material_design.png",
+    // iconUrl: "https://s3-us-west-1.amazonaws.com/angular-university/course-images/material_design.png",
     longDescription: "Build Applications with the official Angular Widget Library",
     category: 'ADVANCED'
   }

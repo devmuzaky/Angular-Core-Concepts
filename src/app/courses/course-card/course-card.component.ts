@@ -1,19 +1,5 @@
 import {
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewChecked,
-  AfterViewInit,
-  Attribute,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  DoCheck,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  Output
+  Attribute, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild
 } from '@angular/core';
 import {Course} from '../../model/course';
 import {CoursesService} from '../courses.service';
@@ -28,10 +14,14 @@ export class CourseCardComponent implements OnInit {
   @Input() cardIndex!: number;
   @Output('courseChanged') courseEmitter = new EventEmitter<Course>();
 
+  @ViewChild('cardTitle', {static: true, read: ElementRef}) cardTitle!: ElementRef;
   constructor(private coursesService: CoursesService, @Attribute('type') private type: string) {
   }
 
+
+
   ngOnInit() {
+
   }
 
   onTitleChanged(newTitle: string) {

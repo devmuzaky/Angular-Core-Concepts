@@ -1,44 +1,46 @@
-<div #container *ngIf="course" class="course-card">
-  <div class="course-title">
-    {{ cardIndex || '' + ' ' + course.description }}
-  </div>
-
-  <ng-content *ngIf="course.iconUrl"
-              select="course-image"></ng-content>
-
-  <div class="course-description">
-
-    Edit Title:
-    <input
-      #courseTitle
-      (keyup)="onTitleChanged(courseTitle.value)"
-      [value]="course.description"
-    >
-  </div>
-
-  <div class="course-category">
-
-    <div class="category" i18n>
-
-      {
-        course.category,
-        select,
-        BEGINNER {Beginner}
-        INTERMEDIATE {Intermediate}
-        ADVANCED {Advanced}
-        }
-
+<ng-container *ngIf="course">
+  <div class="course-card">
+    <div class="course-title">
+      {{ cardIndex + '. ' + course.description }}
     </div>
 
+    <ng-content *ngIf="course.iconUrl; else blank;" select="course-image"></ng-content>
 
+    <ng-template #blankImage let-courseName="description">
+      <p class="warn">{{courseName}} has no image yet</p>
+      <img alt="blankImage" src="assets/empty-image.png">
+    </ng-template>
+
+    <ng-template #blank>
+      <div *ngTemplateOutlet="blankImage; context:{description: course.description}">
+      </div>
+    </ng-template>
+
+
+    <div class="course-description">
+      Edit Title:
+      <input #courseTitle (keyup)="onTitleChanged(courseTitle.value)" [value]="course.description">
+    </div>
+
+    <div class="course-category">
+
+      <div class="category" i18n>
+
+        {
+          course.category,
+          select,
+          BEGINNER {Beginner}
+          INTERMEDIATE {Intermediate}
+          ADVANCED {Advanced}
+          }
+
+      </div>
+
+      <div>
+        <p>{{course.longDescription}}</p>
+      </div>
+
+    </div>
+    <button (click)="onSaveClicked(courseTitle.value)">Save Course</button>
   </div>
-
-  <button (click)="onSaveClicked(courseTitle.value)">Save Course</button>
-
-</div>
-
-
-
-
-
-
+</ng-container>

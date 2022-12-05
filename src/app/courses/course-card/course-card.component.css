@@ -14,7 +14,7 @@
 }
 
 :host.is-even {
-  background: lightgray;
+  background: lemonchiffon;
 }
 
 :host.is-odd {

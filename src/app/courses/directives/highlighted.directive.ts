@@ -1,5 +1,4 @@
-import {Directive, EventEmitter, Host, HostBinding, HostListener, Input, Output} from '@angular/core';
-import {CoursesService} from '../courses.service';
+import {Directive, HostBinding, Input} from '@angular/core';
 
 
 @Directive({
@@ -11,38 +10,13 @@ export class HighlightedDirective {
   @Input('highlighted')
   isHighlighted = false;
 
-  @Output()
-  toggleHighlight = new EventEmitter();
-
-  constructor(private coursesService: CoursesService) {
-
-    console.log('coursesService highlighted ' + coursesService.id);
-
+  constructor() {
   }
 
   @HostBinding('class.highlighted')
-  get cssClasses() {
+  get cssClass() {
     return this.isHighlighted;
   }
 
-  @HostListener('mouseover', ['$event'])
-  mouseOver($event: Event) {
-
-    console.log($event);
-
-    this.isHighlighted = true;
-    this.toggleHighlight.emit(this.isHighlighted);
-  }
-
-  @HostListener('mouseleave')
-  mouseLeave() {
-    this.isHighlighted = false;
-    this.toggleHighlight.emit(this.isHighlighted);
-  }
-
-  toggle() {
-    this.isHighlighted = !this.isHighlighted;
-    this.toggleHighlight.emit(this.isHighlighted);
-  }
 
 }
