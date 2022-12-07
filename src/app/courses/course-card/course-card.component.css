@@ -38,12 +38,7 @@
   font-weight: bold;
 }
 
-.course-card .course-description {
-  max-width: 360px;
-  margin: 0 auto;
-  margin-top: 15px;
-  user-select: none;
-}
+
 
 .course-card .course-description input {
   font-size: 20px;

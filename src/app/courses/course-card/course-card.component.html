@@ -16,16 +16,12 @@
       </div>
     </ng-template>
 
-
     <div class="course-description">
       Edit Title:
       <input #courseTitle (keyup)="onTitleChanged(courseTitle.value)" [value]="course.description">
     </div>
-
     <div class="course-category">
-
       <div class="category" i18n>
-
         {
           course.category,
           select,
@@ -33,12 +29,13 @@
           INTERMEDIATE {Intermediate}
           ADVANCED {Advanced}
           }
-
       </div>
 
-      <div>
-        <p>{{course.longDescription}}</p>
-      </div>
+      <!--      <div (dblclick)="highlighter.toggle()" class="course-description" >-->
+      <!--        {{course.longDescription}}-->
+      <!--      </div>-->
+      <ng-content select="div.longDesc"></ng-content>
+
 
     </div>
     <button (click)="onSaveClicked(courseTitle.value)">Save Course</button>

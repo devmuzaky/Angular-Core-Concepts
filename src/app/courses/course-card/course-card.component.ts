@@ -3,6 +3,7 @@ import {
 } from '@angular/core';
 import {Course} from '../../model/course';
 import {CoursesService} from '../courses.service';
+import {HighlightedDirective} from "../directives/highlighted.directive";
 
 
 @Component({
@@ -14,10 +15,13 @@ export class CourseCardComponent implements OnInit {
   @Input() cardIndex!: number;
   @Output('courseChanged') courseEmitter = new EventEmitter<Course>();
 
+  @Input()
+  highlighter!: HighlightedDirective;
+
   @ViewChild('cardTitle', {static: true, read: ElementRef}) cardTitle!: ElementRef;
+
   constructor(private coursesService: CoursesService, @Attribute('type') private type: string) {
   }
-
 
 
   ngOnInit() {

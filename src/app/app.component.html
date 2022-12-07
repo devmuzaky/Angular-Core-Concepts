@@ -10,11 +10,10 @@
   <div class="demo">
     <button (click)="onEditCourse()" i18n>Edit Course</button>
   </div>
-  <div class="courses">
-
+  <div class="courses" *ngIf="courses$ | async as courses">
     <course-card
-      [highlighted] = true
-      (courseChanged)="save($event)"
+      #highlighter="hl" (courseChanged)="save($event)"
+      (toggleHighlight)="onToggleHighlight($event)"
       *ngFor="let course of  courses; first as isFirst; last as isLast; odd as isOdd; even as isEven; index as i;"
       [cardIndex]="i+1"
       [class.is-even]="isEven"
@@ -22,13 +21,18 @@
       [class.is-last]="isLast"
       [class.is-odd]="isOdd"
       [course]="course"
-      type="beginner"
+      [highlighted]='false'
+      [highlighter]="highlighter"
+      type="beginner">
 
-    >
+      <course-image *ngxUnless="!course.iconUrl" [src]="course.iconUrl"></course-image>
 
-      <course-image [src]="course.iconUrl"></course-image>
+      <div class="longDesc course-description" (dblclick)="highlighter.toggle()">
+        {{course.longDescription}}
+      </div>
 
     </course-card>
+
   </div>
 
 </div>

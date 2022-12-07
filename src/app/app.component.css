@@ -24,8 +24,13 @@
   max-height: 55px;
 }
 
-
 .courses {
   max-width: 400px;
   margin: 50px auto;
+}
+
+.course-description {
+  max-width: 360px;
+  margin: 15px auto 0;
+  user-select: none;
 }
