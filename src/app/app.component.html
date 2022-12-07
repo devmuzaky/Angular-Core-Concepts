@@ -6,9 +6,14 @@
     src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
   >
 </div>
+
 <div>
+
   <div class="demo">
+
+
     <button (click)="onEditCourse()" i18n>Edit Course</button>
+
   </div>
   <div class="courses" *ngIf="courses$ | async as courses">
     <course-card
@@ -36,3 +41,7 @@
   </div>
 
 </div>
+
+
+
+
