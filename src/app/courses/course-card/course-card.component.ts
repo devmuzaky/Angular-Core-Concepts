@@ -1,5 +1,5 @@
 import {
-  Attribute, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild
+  Attribute, ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild
 } from '@angular/core';
 import {Course} from '../../model/course';
 import {CoursesService} from '../courses.service';
@@ -7,7 +7,10 @@ import {HighlightedDirective} from "../directives/highlighted.directive";
 
 
 @Component({
-  selector: 'course-card', templateUrl: './course-card.component.html', styleUrls: ['./course-card.component.css']
+  selector: 'course-card',
+  templateUrl: './course-card.component.html',
+  styleUrls: ['./course-card.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseCardComponent implements OnInit {
 
@@ -25,7 +28,6 @@ export class CourseCardComponent implements OnInit {
 
 
   ngOnInit() {
-
   }
 
   onTitleChanged(newTitle: string) {

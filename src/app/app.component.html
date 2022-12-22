@@ -15,7 +15,7 @@
     <button (click)="onEditCourse()" i18n>Edit Course</button>
 
   </div>
-  <div class="courses" *ngIf="courses$ | async as courses">
+  <div class="courses"  >
     <course-card
       #highlighter="hl" (courseChanged)="save($event)"
       (toggleHighlight)="onToggleHighlight($event)"

@@ -8,6 +8,7 @@ import {HighlightedDirective} from "./courses/directives/highlighted.directive";
 import {CourseCardComponent} from "./courses/course-card/course-card.component";
 import {HttpClient} from "@angular/common/http";
 import {EMPTY, Observable} from "rxjs";
+import {COURSES} from "../db-data";
 
 
 @Component({
@@ -17,12 +18,13 @@ import {EMPTY, Observable} from "rxjs";
 })
 export class AppComponent implements OnInit {
 
-  courses$: Observable<Course[]> = EMPTY;
+  courses: Course[] = COURSES;
 
-  courses: any;
+  // courses$: Observable<Course[]> = EMPTY;
 
   @ViewChild(CourseCardComponent, {read: HighlightedDirective})
   highlighted!: HighlightedDirective;
+
 
   constructor(
     private http: HttpClient,
@@ -33,7 +35,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.courses$ = this.coursesService.loadCourses();
+    // this.courses$ = this.coursesService.loadCourses();
+    // name of the custom element must be in kebab-case (course-card) and not in camelCase (CourseCard)
     const htmlElement = createCustomElement(CourseTitleComponent, {injector: this.injector});
     customElements.define('course-title', htmlElement);
 

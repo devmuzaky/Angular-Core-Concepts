@@ -1,7 +1,8 @@
 <ng-container *ngIf="course">
   <div class="course-card">
     <div class="course-title">
-      {{ cardIndex + '. ' + course.description }}
+      <course-title [title]="course.description"></course-title>
+<!--      {{ cardIndex + '. ' + course.description }}-->
     </div>
 
     <ng-content *ngIf="course.iconUrl; else blank;" select="course-image"></ng-content>
