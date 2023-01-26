@@ -17,6 +17,7 @@
   </div>
   <div class="courses"  >
     <course-card
+      (courseSelected)="onSelected($event)"
       #highlighter="hl" (courseChanged)="save($event)"
       (toggleHighlight)="onToggleHighlight($event)"
       *ngFor="let course of  courses; first as isFirst; last as isLast; odd as isOdd; even as isEven; index as i;"
@@ -37,6 +38,7 @@
       </div>
 
     </course-card>
+
 
   </div>
 

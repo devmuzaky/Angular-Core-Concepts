@@ -18,8 +18,9 @@ export class CourseCardComponent implements OnInit {
   @Input() cardIndex!: number;
   @Output('courseChanged') courseEmitter = new EventEmitter<Course>();
 
-  @Input()
-  highlighter!: HighlightedDirective;
+  @Input() highlighter!: HighlightedDirective;
+
+  @Output() courseSelected = new EventEmitter<Course>();
 
   @ViewChild('cardTitle', {static: true, read: ElementRef}) cardTitle!: ElementRef;
 
@@ -36,5 +37,6 @@ export class CourseCardComponent implements OnInit {
 
   onSaveClicked(description: string) {
     this.courseEmitter.emit({...this.course, description});
+    this.courseSelected.emit(this.course);
   }
 }
