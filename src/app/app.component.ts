@@ -50,13 +50,11 @@ export class AppComponent implements OnInit {
   }
 
   onToggleHighlight($event: boolean) {
-    console.log('Highlighted: ', $event);
   }
 
 
   // Custom event
   onSelected(course: Course) {
-    console.log('Selected: ', course);
   }
 }
 

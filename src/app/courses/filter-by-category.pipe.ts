@@ -6,7 +6,6 @@ import {Course} from '../model/course';
 })
 export class FilterByCategoryPipe implements PipeTransform {
   transform(courses: Course[], category: string) {
-    console.log('Called transform()');
     return courses.filter(course => course.category === category);
   }
 }
