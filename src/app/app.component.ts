@@ -61,6 +61,8 @@ export class AppComponent implements OnInit {
     console.log('Highlighted: ', $event);
   }
 
+
+  // Custom event
   onSelected(course: Course) {
     console.log('Selected: ', course);
   }
