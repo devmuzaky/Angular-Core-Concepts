@@ -32,7 +32,7 @@ export class HighlightedDirective {
     this.toggleHighlight.emit(this.isHighlighted);
   }
 
-  toggle(){
+  toggle() {
     this.isHighlighted = !this.isHighlighted;
     this.toggleHighlight.emit(this.isHighlighted);
   }

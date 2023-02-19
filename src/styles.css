@@ -1,6 +1,4 @@
 
-
-
 .course-card img {
   border-radius: 4px;
   margin-top: 10px;
@@ -14,9 +12,6 @@ button {
   color: white;
   border-radius: 4px;
 }
-
-
-
 
 
 .course-category {
@@ -41,7 +36,7 @@ button {
 }
 
 .warn {
-  color:red;
+  color: red;
 }
 
 .highlighted {

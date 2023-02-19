@@ -1,4 +1,4 @@
-import {Component, Inject, Injectable, InjectionToken, Injector, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, Injector, OnInit, ViewChild} from '@angular/core';
 import {Course} from './model/course';
 import {AppConfig, CONFIG_TOKEN} from './config';
 import {CoursesService} from './courses/courses.service';
@@ -7,7 +7,6 @@ import {CourseTitleComponent} from './course-title/course-title.component';
 import {HighlightedDirective} from "./courses/directives/highlighted.directive";
 import {CourseCardComponent} from "./courses/course-card/course-card.component";
 import {HttpClient} from "@angular/common/http";
-import {EMPTY, Observable} from "rxjs";
 import {COURSES} from "../db-data";
 
 
@@ -40,13 +39,6 @@ export class AppComponent implements OnInit {
     const htmlElement = createCustomElement(CourseTitleComponent, {injector: this.injector});
     customElements.define('course-title', htmlElement);
 
-  }
-
-  ngAfterViewInit() {
-  }
-
-  onEditCourse() {
-    this.courses[1].category = 'ADVANCED';
   }
 
 

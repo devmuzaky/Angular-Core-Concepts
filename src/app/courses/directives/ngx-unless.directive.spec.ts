@@ -1,4 +1,4 @@
-import { NgxUnlessDirective } from './ngx-unless.directive';
+import {NgxUnlessDirective} from './ngx-unless.directive';
 
 describe('NgxUnlessDirective', () => {
   it('should create an instance', () => {
