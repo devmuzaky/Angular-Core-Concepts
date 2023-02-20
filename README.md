@@ -13,4 +13,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - HTTP and observables
 - Redux and NgRx
 
-here is the link to the project: 
+here is the [Demo]: https://devmuzaky.github.io/Angular-Core-Concepts/
+
+
+## Video Demo
